@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <title>Kolo</title>
+</head>
+<body>
+    <div class="circle"></div>
+    <div class="info">Poruszaj kółkiem za pomocą strzałek</div>
+    <div class="point"></div>
+    
+    <script>
+    const circle = document.querySelector(".circle");
+    const info = document.querySelector(".info");
+    const point = document.querySelector(".point");    
+        const move = (e) => {
+            console.log(e.keyCode)
+            //37 to lewa strzalka
+            //38 w gore
+            //39 w prawo
+            //40 w dol
+            //32 spacja
+            info.textContent = `wartość x: ${circle.offsetLeft}, wartość y: ${circle.offsetTop}`;
+            switch(e.keyCode) {
+            case 37:
+            circle.style.left = circle.offsetLeft - 120 + "px";
+            break;
+                case 38:
+                circle.style.top = circle.offsetTop - 10 + "px";
+                break;
+                    case 39:
+                    circle.style.left = circle.offsetLeft + 10 + "px";
+                    break;
+                        case 40:
+                        circle.style.top = circle.offsetTop + 10 + "px";
+                        break;
+                            case (37, 38): // do zrobienia PRZEJAZDY NA SKOS
+                            circle.style.left = circle.offsetLeft - 10 + "px";
+                            circle.style.top = circle.offsetTop - 10 + "px";
+                            break;
+               
+                                case 32:
+                            // odejmuje dziesiec punktow, dodaje szybkosc czyli +5 pikseli wiecej do offseta
+                                default:
+            }
+        }
+        window.addEventListener("keydown", move);
+        
+    </script>
+</body>
+</html>
